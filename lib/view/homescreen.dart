@@ -27,11 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
       case >= 600 && < 700:
         return Lottie.asset('assets/snow.json');
       case >= 700 && < 800:
-        return Lottie.asset('assets/rain.json');
+        return Lottie.asset('assets/cloud.json');
       case == 800:
-        return Lottie.asset('assets/rain.json');
+        return Lottie.asset('assets/sunset1.json');
       case > 800 && <= 804:
-        return Lottie.asset('assets/rain.json');
+        return Lottie.asset('assets/sunset.json');
 
       default:
         return Lottie.asset('assets/rain.json');
@@ -115,6 +115,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     flex: 4,
                                     child: Column(
                                       children: [
+                                        Lottie.asset(
+                                          'assets/profile.json',
+                                          width: 60,
+                                          height: 60,
+                                        ),
                                         Text(
                                           '📍 ${state.weather.areaName}',
                                           style: const TextStyle(
@@ -124,17 +129,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                         ),
                                         const Gap(5),
-                                        const Text(
-                                          'Good Morning',
-                                          style: TextStyle(
+                                        Text(
+                                          '${state.weather.country?.toUpperCase()}',
+                                          style: const TextStyle(
                                             fontSize: 25,
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Lottie.asset(
-                                          'assets/earth.json',
-                                        ),
+                                        getWeatherImage(state
+                                            .weather.weatherConditionCode!),
                                       ],
                                     ),
                                   ),
@@ -177,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Row(
                                               children: [
                                                 Lottie.asset(
-                                                  'assets/sunny.json',
+                                                  'assets/sun.json',
                                                   width: 50,
                                                   height: 50,
                                                 ),
@@ -213,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Row(
                                               children: [
                                                 Lottie.asset(
-                                                  'assets/raining.json',
+                                                  'assets/sunset.json',
                                                   width: 50,
                                                   height: 50,
                                                 ),
@@ -263,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Row(
                                               children: [
                                                 Lottie.asset(
-                                                  'assets/thunderstorm.json',
+                                                  'assets/tempmax.json',
                                                   width: 50,
                                                   height: 50,
                                                 ),
@@ -272,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    const Text(
                                                       'Temp Max',
                                                       style: TextStyle(
                                                         color: Colors.white60,
@@ -280,10 +284,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             FontWeight.w400,
                                                       ),
                                                     ),
-                                                    Gap(2),
+                                                    const Gap(2),
                                                     Text(
-                                                      '${state.weather.tempMax?.celsius?.roundToDouble()}°C',
-                                                      style: TextStyle(
+                                                      '${state.weather.tempMax?.celsius?.round()}°C',
+                                                      style: const TextStyle(
                                                         color: Colors.white,
                                                         fontWeight:
                                                             FontWeight.w700,
@@ -296,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Row(
                                               children: [
                                                 Lottie.asset(
-                                                  'assets/rain.json',
+                                                  'assets/tempmin.json',
                                                   width: 50,
                                                   height: 50,
                                                 ),
@@ -305,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    const Text(
                                                       'Temp Min',
                                                       style: TextStyle(
                                                         color: Colors.white60,
@@ -313,10 +317,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             FontWeight.w400,
                                                       ),
                                                     ),
-                                                    Gap(2),
+                                                    const Gap(2),
                                                     Text(
-                                                      '${state.weather.tempMin?.celsius?.roundToDouble()}°C',
-                                                      style: TextStyle(
+                                                      '${state.weather.tempMin?.celsius?.round()}°C',
+                                                      style: const TextStyle(
                                                         color: Colors.white,
                                                         fontWeight:
                                                             FontWeight.w700,
