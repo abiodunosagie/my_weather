@@ -16,18 +16,33 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Widget getWeatherImage(int code) {
+    switch (code) {
+      case > 200 && <= 300:
+        return Lottie.asset('assets/thunderstorm.json');
+      case >= 300 && < 400:
+        return Lottie.asset('assets/rain.json');
+      case >= 500 && < 600:
+        return Lottie.asset('assets/raining.json');
+      case >= 600 && < 700:
+        return Lottie.asset('assets/snow.json');
+      case >= 700 && < 800:
+        return Lottie.asset('assets/rain.json');
+      case == 800:
+        return Lottie.asset('assets/rain.json');
+      case > 800 && <= 804:
+        return Lottie.asset('assets/rain.json');
+
+      default:
+        return Lottie.asset('assets/rain.json');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      //   systemOverlayStyle: const SystemUiOverlayStyle(
-      //     statusBarBrightness: Brightness.dark,
-      //   ),
-      // ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(

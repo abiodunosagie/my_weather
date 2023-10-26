@@ -31,7 +31,7 @@ class WeatherApp extends StatelessWidget {
             return Scaffold(
               body: Center(
                 child: Lottie.asset(
-                  'assets/loading.json',
+                  'assets/loadingOne.json',
                 ),
               ),
             );
